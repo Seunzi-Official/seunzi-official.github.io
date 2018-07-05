@@ -10,11 +10,11 @@
 	</style>
 	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ejGZmzYXCGFmDff0rBqEUdRZdfGHSquw&s=1"></script>
 	<script type="text/javascript" src="https://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
-	<title>添加椭圆</title>
+	<title>一芳台湾水果茶配送范围</title>
 </head>
 <body>
 	<div id="allmap"></div>
-	<p>在地图上添加一个椭圆，圆的颜色为蓝色、线宽6px、透明度为1，填充颜色为白色，透明度为0.5</p>
+	<p>地图蓝线内为2公里配送范围</p>
 </body>
 </html>
 <script type="text/javascript">
@@ -40,5 +40,10 @@
 	}
 	var oval = new BMap.Polygon(add_oval(point,0.018999,0.018999), {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
 	map.addOverlay(oval);
+	//创建图标
+	var pt = new BMap.Point(116.174501, 23.301767);
+	var myIcon = new BMap.Icon("yf_logo.png", new BMap.Size(255,255));
+	var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+	map.addOverlay(marker2);              // 将标注添加到地图中
 </script>
 
