@@ -19,7 +19,7 @@
 </html>
 <script type="text/javascript">
 	// 百度地图API功能
-	var map = new BMap.Map("allmap");
+	var map = new BMap.Map("allmap",{minZoom:8,maxZoom:16});
 	var point = new BMap.Point(116.174501, 23.301767);
 	map.centerAndZoom(point, 15);
 	
@@ -40,10 +40,15 @@
 	}
 	var oval = new BMap.Polygon(add_oval(point,0.018999,0.018999), {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
 	map.addOverlay(oval);
-	//创建图标
-	var pt = new BMap.Point(116.174501, 23.301767);
-	var myIcon = new BMap.Icon("yf_logo.jpg", new BMap.Size(50,50));
-	var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
-	map.addOverlay(marker2);              // 将标注添加到地图中
+	
+	//设置marker图标为水滴
+        var vectorMarker = new BMap.Marker(point, {
+          // 指定Marker的icon属性为Symbol
+            icon: new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
+                scale: 2,//图标缩放大小
+                fillColor: "orange",//填充颜色
+                fillOpacity: 0.8//填充透明度
+            })
+        });
 </script>
 
