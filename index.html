@@ -22,6 +22,7 @@
 	var map = new BMap.Map("allmap",{minZoom:8,maxZoom:16});
 	var point = new BMap.Point(116.174501, 23.301767);
 	map.centerAndZoom(point, 15);
+	map.enableScrollWheelZoom(true);
 	
 	//centre:椭圆中心点,X:横向经度,Y:纵向纬度
 	function add_oval(centre,x,y)
